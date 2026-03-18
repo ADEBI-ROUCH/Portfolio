@@ -2,2020 +2,1247 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> ROUCHDIYATH ADEBIYI - Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Rouchdiyath Adebiyi – Industrial Engineering Student, 3D Designer & Operations Coordinator. Portfolio showcasing projects in automation, CAD, and web development." />
+    <title>Rouchdiyath Adebiyi | Engineering Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./images/icon-robotics.png" type="image/x-icon">
+        :root {
+            --bg: #05040d;
+            --bg2: #0c0a1e;
+            --purple: #8A2BE2;
+            --violet: #BF40BF;
+            --glow: rgba(138, 43, 226, 0.45);
+            --glow2: rgba(191, 64, 191, 0.35);
+            --text: #e8e0ff;
+            --muted: #9988bb;
+            --border: rgba(138, 43, 226, 0.4);
+            --card: rgba(18, 12, 40, 0.85);
+            --mono: 'Space Mono', monospace;
+            --sans: 'Inter', sans-serif;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./css/style.css">
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            overflow-x: hidden;
+            position: relative;
+        }
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        /* ===== BACKGROUND GRID ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.18;
+            pointer-events: none;
+        }
 
-  <!-- added for journeyw for anime-->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> -->
-  <!--  updo to here -->
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(138, 43, 226, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--purple);
+            border-radius: 3px;
+        }
+
+        /* ===== UTILITY ===== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .glow-text {
+            color: var(--purple);
+            text-shadow: 0 0 12px var(--glow), 0 0 30px rgba(138, 43, 226, 0.25);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            font-size: 0.75rem;
+            font-family: var(--mono);
+            color: var(--violet);
+            background: rgba(138, 43, 226, 0.08);
+            letter-spacing: 0.05em;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--violet);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        h2.section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 56px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--violet));
+            box-shadow: 0 0 10px var(--glow);
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 18px 0;
+            background: rgba(5, 4, 13, 0.85);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--mono);
+            font-size: 1rem;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-logo span {
+            color: var(--purple);
+            text-shadow: 0 0 8px var(--glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.88rem;
+            font-family: var(--mono);
+            letter-spacing: 0.05em;
+            position: relative;
+            transition: color 0.25s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--purple);
+            box-shadow: 0 0 6px var(--glow);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-greeting {
+            font-family: var(--mono);
+            font-size: 1rem;
+            color: var(--violet);
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-greeting::before {
+            content: '//';
+            color: var(--purple);
+        }
+
+        h1.hero-name {
+            font-size: clamp(2.4rem, 7vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero-role {
+            font-family: var(--mono);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--muted);
+            margin-bottom: 28px;
+            min-height: 1.5em;
+        }
+
+        .hero-role .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.1em;
+            background: var(--purple);
+            margin-left: 3px;
+            animation: blink 0.9s step-end infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+        }
+
+        .hero-bio {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 540px;
+            margin-bottom: 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-family: var(--mono);
+            font-size: 0.88rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--purple), var(--violet));
+            color: #fff;
+            border: none;
+            box-shadow: 0 0 20px var(--glow), 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 35px var(--glow), 0 6px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.1);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+            box-shadow: 0 0 20px var(--glow);
+            transform: translateY(-2px);
+        }
+
+        .hero-orb {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+            filter: blur(30px);
+            animation: pulse-orb 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-orb {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: translateY(-50%) scale(1)
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1.08)
+            }
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px 40px;
+            margin-top: 60px;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.1);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            font-family: var(--mono);
+            color: var(--purple);
+            text-shadow: 0 0 14px var(--glow);
+        }
+
+        .stat-item p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        #experience {
+            background: rgba(8, 5, 20, 0.5);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--purple), var(--violet), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 48px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--purple);
+            border: 2px solid var(--bg);
+            box-shadow: 0 0 12px var(--glow), 0 0 24px rgba(138, 43, 226, 0.3);
+        }
+
+        .timeline-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 32px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .timeline-card:hover {
+            border-color: var(--purple);
+            transform: translateX(6px);
+            box-shadow: -4px 0 20px var(--glow), 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .tl-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .tl-company {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--violet);
+            margin-bottom: 6px;
+        }
+
+        .tl-role {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .tl-date {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .tl-desc {
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.35s;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(138, 43, 226, 0.25), 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(191, 64, 191, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(138, 43, 226, 0.05) 10px, rgba(138, 43, 226, 0.05) 11px);
+        }
+
+        .project-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .project-desc {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SKILLS ===== */
+        #skills {
+            background: rgba(8, 5, 20, 0.5);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .skill-category {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--purple);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.15);
+        }
+
+        .skill-cat-title {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--violet);
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-cat-title span {
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 16px;
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 0.87rem;
+        }
+
+        .skill-name {
+            color: var(--text);
+        }
+
+        .skill-pct {
+            font-family: var(--mono);
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .skill-bar-bg {
+            height: 4px;
+            background: rgba(138, 43, 226, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--violet));
+            box-shadow: 0 0 8px var(--glow);
+            width: 0;
+            transition: width 1.2s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-info p {
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+            background: var(--card);
+        }
+
+        .contact-link:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+            box-shadow: 0 0 20px var(--glow);
+            transform: translateX(6px);
+        }
+
+        .contact-link .icon {
+            font-size: 1.3rem;
+        }
+
+        .contact-link .label {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--muted);
+            letter-spacing: 0.07em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 0.92rem;
+            outline: none;
+            transition: all 0.3s;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--purple);
+            box-shadow: 0 0 12px var(--glow);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(153, 136, 187, 0.4);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer span {
+            color: var(--purple);
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ===== MOBILE NAV ===== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(5, 4, 13, 0.97);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                padding: 24px;
+                gap: 24px;
+                transform: translateY(-120%);
+                opacity: 0;
+                transition: all 0.35s;
+                pointer-events: none;
+            }
+
+            .nav-links.open {
+                transform: none;
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-orb {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./images/logo/profile_logo.png" alt="Taha TAIDI LAAMIRI" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="ROUCHDIYATH ADEBIYI" style="font-size: 1.3rem;">ROUCHDIYATH ADEBIYI</h1>
-          <!-- <h1 class="name" title="ROUCHDIYATH ADEBIYI">ROUCHDIYATH ADEBIYI</h1> -->
-          <p class="title">Industrial engineer</p>
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#home" class="nav-logo"><span>&lt;</span>R.Adebiyi<span>/&gt;</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+    </nav>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
+    <!-- HERO -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-greeting">hello, world</div>
+                <h1 class="hero-name">
+                    Rouchdiyath<br><span class="glow-text">Adebiyi</span>
+                </h1>
+                <p class="hero-role">
+                    <span id="typewriter"></span><span class="cursor"></span>
+                </p>
+                <p class="hero-bio">
+                    Passionate Industrial Engineering student specializing in maintenance, 3D design, and automation.
+                    Driven to bridge the gap between precision engineering and intelligent systems — currently seeking a
+                    summer internship
+                    to leverage expertise in production optimization and mechanical design.
+                </p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
             </div>
+            <div class="hero-orb"></div>
 
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:rouchdiyath.adebiyi@ensi.ma" class="contact-link">rouchdiyath.adebiyi@ensi.ma</a>
+            <div class="stats-bar reveal">
+                <div class="stat-item">
+                    <h3>3+</h3>
+                    <p>Years of CAD Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>6+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>Professional Roles</p>
+                </div>
             </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+212766886289" class="contact-link">+212 766 886 289</a>
-            </div>
-
-          </li>
- 
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Tangier, MOROCCO</address>
-            </div>
-          </li> 
-          
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://discord.com/users/tiyah_1"  target="_blank" class="social-link">
-              <ion-icon name="logo-discord"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com/ADEBI-ROUCH"  target="_blank" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="www.linkedin.com/in/adebiyi-rouchdiyath-1a0428343"  target="_blank" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-    <!-- done working 1  and check done--> 
-
-    
-    
-    <!--
-      - #main-content
-    -->
-
-<div class="main-content">
-
- 
- 
-  <!--
-    - #NAVBAR mini size
-   -->
-  <nav class="navbar" style="font-size: 14px; padding: 10px 0;">
-
-    <ul class="navbar-list" style="display: flex; gap: 15px;">
-  
-      <li class="navbar-item">
-        <button class="navbar-link active" data-nav-link style="padding: 5px 10px;">About</button>
-      </li>
-  
-      <li class="navbar-item">
-        <button class="navbar-link" data-nav-link style="padding: 5px 10px;">Resume</button>
-      </li>
-  
-      <!-- <li class="navbar-item">
-        <button class="navbar-link" data-nav-link style="padding: 5px 10px;">Journey</button>
-      </li> -->
-
-      <li class="navbar-item">
-        <button class="navbar-link" data-nav-link style="padding: 5px 10px;">Projects</button> 
-      </li>
-  
-      <li class="navbar-item">
-        <button class="navbar-link" data-nav-link style="padding: 5px 10px;">Achievement</button>
-      </li>
-  
-      <li class="navbar-item">
-        <button class="navbar-link" data-nav-link style="padding: 5px 10px;">Contact</button>
-      </li>
-  
-    </ul>
-  
-  </nav>
-  
-  <!--
-    - #ABOUT
-  -->
-
-  <article class="about active" data-page="about">
-
-    <header>
-      <h2 class="h2 article-title">About Me</h2>
-    </header>
-
-    <section class="about-text">
-      <p>
-        ROUCHDIYATH ADEBIYI is an industrial engineer specializing in robotics and automated systems, with expertise in developing robots using hardware platforms such as NVIDIA Jetson, Raspberry Pi, Arduino, and Controllino.</p>
-      <p>
-        With a background in Software Development and Electronics, I focus on integrating robotics with advanced AI techniques to solve complex problems. My projects range from autonomous vehicles to DIY CNC Machines, reflecting my passion for innovation and technology.
-      </p>
+        </div>
     </section>
 
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <p class="section-label">// career path</p>
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
 
+                <div class="timeline-item reveal">
+                    <div class="timeline-card">
+                        <div class="tl-top">
+                            <div>
+                                <p class="tl-company">TI AUTOMOTIVE</p>
+                                <p class="tl-role">Industrial Engineering Intern</p>
+                            </div>
+                            <span class="tl-date">2024</span>
+                        </div>
+                        <p class="tl-desc">
+                            Developed a real-time lot monitoring system to optimize production efficiency and track
+                            machine KPIs. Implemented data collection workflows and dashboards that improved
+                            traceability and reduced downtime visibility gaps on the production floor.
+                        </p>
+                        <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
+                            <span class="tag">KPI Tracking</span>
+                            <span class="tag">Production Systems</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
 
-<!--
-  - service
--->
+                <div class="timeline-item reveal">
+                    <div class="timeline-card">
+                        <div class="tl-top">
+                            <div>
+                                <p class="tl-company">OJAMI</p>
+                                <p class="tl-role">Operations Coordinator</p>
+                            </div>
+                            <span class="tl-date">2023 – Present</span>
+                        </div>
+                        <p class="tl-desc">
+                            Managing operational flows and providing remote technical coordination across distributed
+                            teams.
+                            Streamlining communication channels and ensuring seamless delivery of technical services
+                            in a fast-paced startup environment.
+                        </p>
+                        <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
+                            <span class="tag">Operations</span>
+                            <span class="tag">Remote Coordination</span>
+                            <span class="tag">Process Management</span>
+                        </div>
+                    </div>
+                </div>
 
-<section class="service">
-  <h3 class="h3 service-title">What I'm Doing</h3>
-  <ul class="service-list">
+                <div class="timeline-item reveal">
+                    <div class="timeline-card">
+                        <div class="tl-top">
+                            <div>
+                                <p class="tl-company">ENSI VEX-U TEAM</p>
+                                <p class="tl-role">3D Designer</p>
+                            </div>
+                            <span class="tl-date">2022 – 2024</span>
+                        </div>
+                        <p class="tl-desc">
+                            Technical design of competition robots using professional CAD tools. Responsible for
+                            mechanical
+                            part modeling, assembly validation, and manufacturing-ready documentation for VEX-U robotics
+                            competitions.
+                        </p>
+                        <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
+                            <span class="tag">CAD / CAM</span>
+                            <span class="tag">SolidWorks</span>
+                            <span class="tag">Robotics</span>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Service 1 -->
-    <li class="service-item" style="transition: transform .2s, box-shadow .2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 4px 8px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
-
-      <div class="service-icon-box">
-        <img src="./images/icon-robotics.png" alt="Robotics Development icon" width="40">
-      </div>
-
-      <div class="service-content-box">
-        <h4 class="h4 service-item-title">Robotics Development</h4>
-
-        <p class="service-item-text">
-          Design and development of intelligent robotic systems with advanced sensors and Technologies.
-        </p>
-      </div>
-    </li>
-
-    <!-- Service 2 -->
-    <li class="service-item" style="transition: transform .2s, box-shadow .2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 4px 8px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
-
-      <div class="service-icon-box">
-        <img src="./images/icon-iot.png" alt="IoT Integration icon" width="40">
-      </div>
-
-      <div class="service-content-box">
-        <h4 class="h4 service-item-title">IoT and Automation</h4>
-
-        <p class="service-item-text">
-          Integration of IoT devices with robots for smart automation in household and industrial settings.
-        </p>
-      </div>
-    </li>
-
-    <!-- Service 3 -->
-    <li class="service-item" style="transition: transform .2s, box-shadow .2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 4px 8px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
-
-      <div class="service-icon-box">
-        <img src="./images/icon-dev.png" alt="AI Research icon" width="40">
-      </div>
-
-      <div class="service-content-box">
-        <h4 class="h4 service-item-title">Web and App development</h4>
-
-        <p class="service-item-text">
-          Design and development of mobile and web app.
-        </p>
-      </div>
-    </li>
-
-    <!-- Service 4 -->
-    <li class="service-item" style="transition: transform .2s, box-shadow .2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 4px 8px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
-
-      <div class="service-icon-box">
-        <img src="./images/icon-prize.png" alt="PCB Design and Prototyping icon" width="40">
-      </div>
-
-      <div class="service-content-box">
-        <h4 class="h4 service-item-title">Competitions and hackathon</h4>
-
-        <p class="service-item-text">
-          competing in various robotics and innovation competitions and hackathon.
-        </p>
-      </div>
-
-    </li>
-
-  </ul>
-</section>
-
-
-  <!-- changing -->
-
-<!-- Testimonials Section -->
-<section class="testimonials">
- 
-
-
-</article>
-
-
-
-
-
-  <!-- 
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="school-outline"></ion-icon>
             </div>
-
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Industrial Engineering</h4> 
-              <span>Sep 2024 — July 2027</span>
-              <span style="color: #f3f2ee;">School of New Sciences and Engineering, Tangier, MOROCCO</span>
-  
-
-              <p class="timeline-text">
-                <span style="color: #d8d8d5;">Course work</span>
-                <span style="color: #c9c9c8;">Industrial Engineering&nbsp;&nbsp;&nbsp;&nbsp;: Automatic, pneumatic and Hydraulic Systems</span>
-                <span style="color: #c9c9c8;">Automation & Control&nbsp;&nbsp;&nbsp;&nbsp;: PLC Automation, Robotics Modeling and Control, CAD</span>
-                <span style="color: #c9c9c8;">Management & Quality&nbsp;: Quality, Maintenance and Supply Chain Management</span>
-                <span style="color: #c9c9c8;">Energy & Sustainability&nbsp;&nbsp;: Renewable Energy, Sustainable Development for Engineers</span>
-                <span style="color: #c9c9c8;">Project & Soft Skills&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Industrial Project Management, Labor Law</span>
-            </p>
-            
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Automated system Degree</h4>
-              <!-- <span style="color: #f3df9c;"></span> -->
-              <span>Sep 2022 — Jun 2024</span>
-              <span style="color: #f3f2ee;">Automotive Industry Careers Training Institute, Tangier, MOROCCO</span>
-              <!-- <span style="color: #cca423;"></span> -->
-
-              <p class="timeline-text">
-                <span style="color: #d8d8d5;"> Course work Includes 40 + subjects</span>
-                <span style="color: #d8d8d5;">Coursework</span>
-                <span style="color: #c9c9c8;">Core Skills&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Mathematics, Communication, English, Computer Science</span>
-                <span style="color: #c9c9c8;">Engineering Fundamentals&nbsp;: Electrical Circuits, Electrotechnics, Analog & Digital Circuits</span>
-                <span style="color: #c9c9c8;">Mechanical Engineering&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: CAD, Mechanics, Manufacturing Techniques</span>
-                <span style="color: #c9c9c8;">Automation & Control&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: PLC, Pneumatics, Hydraulics, Automation, Microcontrollers</span>
-                <span style="color: #c9c9c8;">Industrial Management&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Industrial Safety & Quality, Automotive Technology</span>
-                <span style="color: #c9c9c8;">Practical Experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Project Management, Final Project, Internships</span>
-            </p>
-            
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Baccalaureate Physics Science French Option</h4>
-              <!-- <span style="color: #f3df9c;"></span> -->
-              <span>Sep 2020 — July 2022</span>
-              <span style="color: #f3f2ee;"> Allal el Fassi High School, Tangier, MOROCCO</span>
-    
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Professional Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Robotics Lab Manager</h4>
-              <span>Dec 2023 — Present</span>
-              <span style="color: #f3f2ee;">Mindcraft Lab, Tangier, MOROCCO.</span>
-
-              <p class="timeline-text">
-                • Managed MINDCRAFT Lab, overseeing operations and resource allocation. <span></span>
-                • Developed curriculum and sessions for kids aged 5 to 18. <span></span>
-                • Selected appropriate kits and equipment for various age groups. <span></span>
-                • Prepared and trained team members for national and international competitions. <span></span>
-                • Participated in FLL, FTC, VEX GO RC, VEX IQ RC, and NASA Space Apps. <span></span>
-              </p>
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">PLCs Internship</h4>
-              <span>Sep 2023 — Dec 2023</span>
-              <span style="color: #f3f2ee;">RNC Valley , Tangier, MOROCCO.</span>
-
-              <p class="timeline-text">
-                • Internship at RNC Valley focused on Controllino PLC programming. <span></span>
-                • Developed and tested PLC control systems for automation projects. <span></span>
-                • Documented project progress and created sample code for Controllino PLC, available on GitHub. <span></span>
-                • Improved system efficiency through preventive maintenance and troubleshooting. <span></span>
-                • GitHub Repository: <a href="https://github.com/DexterTaha/Controllino-PLC-Sample" target="_blank">Controllino PLC Sample</a>
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Maintenance Internship</h4>
-              <span>Jan 2023 — Apr 2023</span>
-              <span style="color: #f3f2ee;">Standard Profil Group, Tangier, MOROCCO.</span>
-
-              <p class="timeline-text">
-                • Maintenance Internship at Standard Profil Group, specializing in electrical and PLC systems. <span></span>
-                • Replaced and tested Programmable Logic Controllers (PLCs). <span></span>
-                • Wrote and implemented electrical molding machine programs to streamline operations. <span></span>
-                • Prepared detailed maintenance reports, documenting preventive and corrective actions. <span></span>
-                • Performed both preventive and corrective maintenance to improve equipment reliability and reduce downtime.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Robotics Teacher</h4>
-              <span>Aug 2022 — Mar 2023</span>
-              <span style="color: #f3f2ee;">Alamal Association, Tangier, MOROCCO.</span>
-
-              <p class="timeline-text">
-                • Teach kids aged 5 to 18. <span></span>
-                • Animate Robotics and programming Lessons. <span></span>
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="bar-chart-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Extra Professional Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Founder & President</h4>
-              <span>Aug 2023 — Present</span>
-              <span style="color: #f3f2ee;">ENSI robotics and AI Club, Tangier, MOROCCO.</span>
-
-              <p class="timeline-text">
-                • Founded and organized the club's architecture, establishing a strong foundation for growth. <span></span>
-                • Won the 2nd prize at the Capgemini 2024 Innovation and AI Challenge. <span></span>
-                • Conducted training sessions for club members in electronics, programming, presentation skills, pitching, and CAD design. <span></span>
-                • Developed a structured approach to improve members' skills, fostering expertise in technical and soft skills for future competitions and projects.
-              </p>
-      
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Organization Team Member</h4>
-              <span>Jan 2024 — May 2024</span>
-              <span style="color: #f3f2ee;">Fablab GreenLab FST of Tangier, MOROCCO.</span>
-
-              <p class="timeline-text">
-                • Robotics Team Leader at Fablab GreenLab, guiding projects and team members. <span></span>
-                • Trained members in Arduino programming and hands-on electronics skills. <span></span>
-                • Created graphic designs for presentations and lab branding. <span></span>
-                • Participated in numerous showrooms, competitions, hackathon, and festivals to showcase our projects.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Founder & President</h4>
-              <span>Jan 2024 — May 2024</span>
-              <span style="color: #f3f2ee;">TANGIER WARRIORS, Tangier, MOROCCO.</span>
-
-              <p class="timeline-text">
-                • Founder and President of Tangier Warriors Robotics Club, organizing and establishing the club’s structure. <span></span>
-                • Led the club to win the African first prize in the 2024 robotics competition. <span></span>
-                • Secured the second prize in the sumo robot competition and the tic-tac-toe robot competition. <span></span>
-                • Guided members in various robotics projects and represented the club at multiple events, showrooms, hackathon, and festivals.
-              </p>
-
-            </li>
-
-            <li class="timeline-item"></li>
-
-              <h4 class="h4 timeline-item-title">Founder & President</h4>
-              <span>Nov 2021 — Dec 2021</span>
-              <span style="color: #f3f2ee;">Science and Technology Club of Allal el fassi high school Tangier, MOROCCO.</span>
-
-              <p class="timeline-text">
-                • Founder and President of Allal El Fassi High School Science and Technology Club, creating and organizing the club’s activities. <span></span>
-                • Led a year-long training program covering HTML, CSS, JavaScript, Arduino, and LEGO SPIKE Prime. <span></span>
-                • Organized a Science Week event at the end of the year to showcase students' projects and learning.
-              </p>
-            
-            </li>
-
-          </ol>
-
-        </section>
-
-
-  <!-- Skills Section -->
-<!-- Skills Section -->
-<section class="skill">
-  <h3 class="h3 skills-title">My skills</h3>
-  <ul class="clients-list has-scrollbar">
-    <li class="clients-item">
-      <h3 class="group-title">App & Web</h3>
-      <a href="https://skillicons.dev">
-        <img src="https://skillicons.dev/icons?i=html,css,js,scss,react,vue,bootstrap,threejs,docker,&perline=3" alt="Skills" />
-      </a>
-    </li>
-    <li class="clients-item">
-      <h3 class="group-title">Robotics</h3>
-      <a href="https://skillicons.dev">
-        <img src="https://skillicons.dev/icons?i=c,cpp,raspberrypi,arduino,ros,bash,linux,ubuntu,git,github,java,androidstudio,processing,matlab&perline=3" alt="Skills" />
-      </a>
-    </li>
-    <li class="clients-item">
-      <h3 class="group-title">AI & Tools</h3>
-      <a href="https://skillicons.dev">
-        <img src="https://skillicons.dev/icons?i=py,vscode,pycharm,opencv,pytorch,tensorflow,latex&perline=3" alt="Skills" />
-      </a>
-    </li>
-  </ul>
-</section>
-
-
-
-
-
-
-
-
-
-
-</article>
-
-
-<!-- Projects Section -->
- <!-- change in line one data-category and also inside < p class -->
-<article class="portfolio" data-page="projects">
-
-  <header>
-    <h2 class="h2 article-title">Projects</h2>
-  </header>
-
-  <section class="projects">
-
-    <ul class="filter-list">
-
-      <li class="filter-item">
-        <button class="active" data-filter-btn>All</button>
-      </li>
-
-      <li class="filter-item">
-        <button data-filter-btn>Web site</button>
-      </li>
-
-      <li class="filter-item">
-        <button data-filter-btn>Hackathons</button>
-      </li>
-
-      <li class="filter-item">
-        <button data-filter-btn>Olympiads</button>
-      </li>
-
-      <li class="filter-item">
-        <button data-filter-btn>Robots</button>
-      </li>
-
-      <li class="filter-item">
-        <button data-filter-btn>Projects</button>
-      </li>
-
-    </ul>
-
-    <div class="filter-select-box">
-
-      <button class="filter-select" data-select>
-
-        <div class="select-value" data-selecct-value>Select category</div>
-
-        <div class="select-icon">
-          <ion-icon name="chevron-down"></ion-icon>
         </div>
+    </section>
 
-      </button>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <p class="section-label">// what i've built</p>
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
 
-      <ul class="select-list">
+                <div class="project-card reveal">
+                    <div class="project-img">🪖</div>
+                    <div class="project-body">
+                        <p class="project-title">Smart Safety Helmet</p>
+                        <p class="project-desc">
+                            Designed an innovative industrial safety helmet integrating built-in safety glasses
+                            and active noise-canceling technology. Full CAD model developed with ergonomic and
+                            compliance standards in mind for real-world manufacturing environments.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">CAD Design</span>
+                            <span class="tag">SolidWorks</span>
+                            <span class="tag">Innovation</span>
+                        </div>
+                    </div>
+                </div>
 
-        <li class="select-item">
-          <button data-select-item>All</button>
-        </li>
+                <div class="project-card reveal">
+                    <div class="project-img">🎮</div>
+                    <div class="project-body">
+                        <p class="project-title">2D Video Game (Godot)</p>
+                        <p class="project-desc">
+                            Independently developed a 2D video game using the Godot Engine. Covered the full game
+                            development pipeline — from game mechanics design, scene scripting with GDScript,
+                            level design, to asset creation and final build.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Godot Engine</span>
+                            <span class="tag">GDScript</span>
+                            <span class="tag">Game Design</span>
+                        </div>
+                    </div>
+                </div>
 
-        <li class="select-item">
-          <button data-select-item>web site</button>
-        </li>
+                <div class="project-card reveal">
+                    <div class="project-img">🌐</div>
+                    <div class="project-body">
+                        <p class="project-title">Darija Learning Platform</p>
+                        <p class="project-desc">
+                            Built an interactive web platform to help non-Moroccan students learn Darija
+                            (Moroccan Arabic dialect). Featuring structured lessons, audio guides, and quizzes,
+                            fully implemented with HTML, CSS, and vanilla JavaScript.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">EdTech</span>
+                        </div>
+                    </div>
+                </div>
 
-        <li class="select-item">
-          <button data-select-item>hackathons</button>
-        </li>
-
-        <li class="select-item">
-          <button data-select-item>olympiads</button>
-        </li>
-
-        <li class="select-item">
-          <button data-select-item>robots</button>
-        </li>
-
-        <li class="select-item">
-          <button data-select-item>project</button>
-        </li>
-
-      </ul>
-
-    </div>
-
-    <ul class="project-list">
-
-      <li class="project-item active" data-filter-item data-category="hackathons">
-        <a href="https://dextertaha.github.io/SAR-EQViz/index.html"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
             </div>
+        </div>
+    </section>
 
-            <img src="./images/projects/SAR-EQViz.png" alt="hackathons" loading="lazy">
-          </figure>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <p class="section-label">// technical stack</p>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
 
-          <h3 class="project-title">Nasa space App 2023 SAR-EQViz</h3>
+                <div class="skill-category reveal">
+                    <p class="skill-cat-title"><span>🧊</span>3D Modeling & CAD</p>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">CATIA</span><span class="skill-pct">85%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">SolidWorks</span><span
+                                class="skill-pct">80%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">Blender</span><span class="skill-pct">70%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="70"></div>
+                        </div>
+                    </div>
+                </div>
 
-          <p class="project-category">hackathons</p>
-          <p class="project-category">web site</p>
+                <div class="skill-category reveal">
+                    <p class="skill-cat-title"><span>⚙️</span>Simulation & Automation</p>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">MATLAB/Simulink</span><span
+                                class="skill-pct">78%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="78"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">TIA Portal (PLC)</span><span
+                                class="skill-pct">72%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="72"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">PSIM</span><span class="skill-pct">65%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="65"></div>
+                        </div>
+                    </div>
+                </div>
 
-        </a>
-      </li>
+                <div class="skill-category reveal">
+                    <p class="skill-cat-title"><span>💻</span>Software & Programming</p>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">Python</span><span class="skill-pct">75%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">HTML/CSS/JS</span><span
+                                class="skill-pct">80%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-top"><span class="skill-name">Advanced Excel</span><span
+                                class="skill-pct">88%</span></div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-width="88"></div>
+                        </div>
+                    </div>
+                </div>
 
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="https://github.com/DexterTaha/Controllino-PLC-Sample"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
             </div>
+        </div>
+    </section>
 
-            <img src="./images/projects/Controllino-PLC project.gif" alt="web site" loading="lazy">
-          </figure>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <p class="section-label">// let's connect</p>
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Open to <span class="glow-text">Opportunities</span></h3>
+                    <p>
+                        Currently seeking a summer internship in industrial engineering, automation, or 3D design.
+                        Feel free to reach out — I'm always open to interesting projects and collaborations.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:rouchdiyath.adebiyi@ensi.ma" class="contact-link">
+                            <span class="icon">✉️</span>
+                            <span class="label">rouchdiyath.adebiyi@ensi.ma</span>
+                        </a>
+                        <a href="tel:+212766886289" class="contact-link">
+                            <span class="icon">📞</span>
+                            <span class="label">+212 766 886 289</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adebiyi-rouchdiyath-1a0428343" target="_blank"
+                            class="contact-link">
+                            <span class="icon">💼</span>
+                            <span class="label">linkedin.com/in/adebiyi-rouchdiyath</span>
+                        </a>
+                        <a href="https://github.com/ADEBI-ROUCH" target="_blank" class="contact-link">
+                            <span class="icon">🐙</span>
+                            <span class="label">github.com/ADEBI-ROUCH</span>
+                        </a>
+                        <a href="https://discord.com/users/tiyah_1" target="_blank" class="contact-link">
+                            <span class="icon">🎮</span>
+                            <span class="label">discord: tiyah_1</span>
+                        </a>
+                    </div>
+                </div>
 
-          <h3 class="project-title">Controllino-PLC</h3>
-
-          <p class="project-category">web site</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="https://dextertaha.github.io/Allal_ElFassi_High_School_website/"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
+                <div class="reveal">
+                    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">// NAME</label>
+                            <input type="text" id="name" placeholder="Your Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">// EMAIL</label>
+                            <input type="email" id="email" placeholder="your@email.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">// MESSAGE</label>
+                            <textarea id="message" rows="5" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                            Send Message
+                        </button>
+                        <p id="form-status"
+                            style="text-align:center;font-family:var(--mono);font-size:0.82rem;color:var(--violet);display:none;margin-top:8px;">
+                        </p>
+                    </form>
+                </div>
             </div>
-
-            <img src="./images/projects/Allal El Fassi website.jpg" alt="web site" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">High School WebSite</h3>
-
-          <p class="project-category">web site</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="https://dextertaha.github.io/WRO-2024-RoboMission-Randomizer/"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/WRO-2024-RoboMission-Randomizer.jpg" alt="web site" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">WRO 2024 RoboMission Randomizer</h3>
-
-          <p class="project-category">web site</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="https://github.com/mindcraftlabs/Near-Earth-Objects-2024-NASA-Space-Apps-Challenge-Mindcraft"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Nasa space App 2024.jpg" alt="web site" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Nasa space App 2024 Orrery</h3>
-
-          <p class="project-category">hackathons</p>
-          <p class="project-category">web site</p>
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="https://dextertaha.github.io/Number-Converter-WebApp/"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Number Converter WebApp.jpg" alt="web site" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Number-Converter-WebApp</h3>
-
-          <p class="project-category">web site</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="https://dextertaha.github.io/CRUDS/"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/CRUDS.jpg" alt="web site" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">CRUDS</h3>
-
-          <p class="project-category">web site</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="httpsdextertaha.github.ioWRO-Future-Engineers-Randomiser"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/WRO Future Engineers Randomiser.jpg" alt="web site" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">WRO Future Engineers Randomiser</h3>
-
-          <p class="project-category">web site</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="robots">
-        <a href="https://github.com/DexterTaha/WRO-2024-FUTURE-ENGINEERS"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/WRO 2024 FUTURE ENGINEERS.jpg" alt="robots" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">WRO 2024 FUTURE ENGINEERS</h3>
-
-          <p class="project-category">robots</p>
-          <p class="project-category">olympiads</p> 
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="https://dextertaha.github.io/Tangier-Warriors-WebSite/"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Tangier Warriors WebSite.jpg" alt="web site" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Tangier Warriors WebSite</h3>
-
-          <p class="project-category">web site</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="web site">
-        <a href="https://dextertaha.github.io/Taha-Taidi-Laamiri-portfolio/"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/personal portfolio.jpg" alt="web site" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">personal portfolio</h3>
-
-          <p class="project-category">web site</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="projects">
-        <a href="https://www.canva.com/design/DAGESQzZhrs/9Ln1L2E-HcNcb0o_rXMJcg/view"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/PFE PCB CNC Machine.jpg" alt="projects" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">PFE PCB CNC Machine</h3>
-
-          <p class="project-category">projects</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="projects">
-        <a href="https://github.com/DexterTaha/Distributeur-Touch-screen-Project"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Distributeur Touch screen Project.jpg" alt="projects" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Distributeur Touch screen Project</h3>
-
-          <p class="project-category">projects</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="hackathons">
-        <a href="https://dextertaha.github.io/VirtuoCare/index.html"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/VirtuoCare.jpg" alt="hackathons" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">VirtuoCare</h3>
-
-          <p class="project-category">hackathons</p>
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="robots">
-        <a href="https://github.com/DexterTaha/WRO-FE-2024-Mindcraft-International"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Turkey 2024 international finals robotics olympiads.gif" alt="robots" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Turkey 2024 international finals robotics olympiads</h3>
-
-          <p class="project-category">robots</p>
-          <p class="project-category">olympiads</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="robots">
-        <a href="https://github.com/DexterTaha/WRO-FE-2025-Mindcraft/tree/National-WRO-2025-FE-Phase-Morocco"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Morocco 2025 National robotics olympiads.png" alt="robots" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Morocco 2025 National robotics olympiads</h3>
-
-          <p class="project-category">robots</p>
-          <p class="project-category">olympiads</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="robots">
-        <a href="https://github.com/DexterTaha/WRO-FE-2025-Mindcraft"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Singapore 2025 international finals robotics olympiads.png" alt="robots" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Singapore 2025 international finals robotics olympiads</h3>
-
-          <p class="project-category">robots</p>
-          <p class="project-category">olympiads</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="hackathons">
-        <a href="https://github.com/mindcraftlabs/Build-a-Space-Biology-Knowledge-Engine"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Nasa space App 2025 Biology Experiment Research Portal.jpg" alt="hackathons" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Nasa space App 2025 Biology Experiment Research Portal</h3>
-
-          <p class="project-category">hackathons</p>
-          <p class="project-category">web site</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="Robots">
-        <a href="https://www.linkedin.com/posts/taha-taidi-laamiri_teamvictory-somocompetition-roboticschampions-activity-7230921393532465152-In-6?utm_source=share&utm_medium=member_desktop&rcm=ACoAADsQKJQB-dC1HhnCyM7VlUJpfrglx1MXt60"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Sumo Robot.png" alt="Robots" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Sumo Robot</h3>
-
-          <p class="project-category">Robots</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="Robots">
-        <a href="https://www.linkedin.com/posts/salma-hamraoui-56590b30b_robotics-vexiq-innovation-ugcPost-7321876383427624961-iVV-?utm_source=share&utm_medium=member_desktop&rcm=ACoAADsQKJQB-dC1HhnCyM7VlUJpfrglx1MXt60"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/VEX IQ RC.png" alt="Robots" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">VEX IQ RC</h3>
-
-          <p class="project-category">Robots</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="Robots">
-        <a href="https://www.linkedin.com/posts/taha-taidi-laamiri_innovation-technology-robotics-activity-7232008593871360000-y8bG?utm_source=share&utm_medium=member_desktop&rcm=ACoAADsQKJQB-dC1HhnCyM7VlUJpfrglx1MXt60"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Soccer Robot.png" alt="Robots" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Soccer Robot</h3>
-
-          <p class="project-category">Robots</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="Robots">
-        <a href="https://www.linkedin.com/posts/taha-taidi-laamiri_roboticore-ensamrabat-robotics-activity-7230287205640876032-IVux?utm_source=share&utm_medium=member_desktop&rcm=ACoAADsQKJQB-dC1HhnCyM7VlUJpfrglx1MXt60"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/african competition of robotics.png" alt="Robots" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">African competition of robotics</h3>
-
-          <p class="project-category">Robots</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="Projects">
-        <a href="https://www.linkedin.com/posts/greenlab-fablab-tanger_greenlab-arduino-science-activity-7125088334976032768-N-6x?utm_source=share&utm_medium=member_desktop&rcm=ACoAADsQKJQB-dC1HhnCyM7VlUJpfrglx1MXt60"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Fablab Arduino training 1.png" alt="Projects" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Fablab Arduino training 1</h3>
-
-          <p class="project-category">Projects</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="Projects">
-        <a href="https://www.linkedin.com/posts/greenlab-fablab-tanger_greenlab-arduino-science-activity-7125088334976032768-N-6x?utm_source=share&utm_medium=member_desktop&rcm=ACoAADsQKJQB-dC1HhnCyM7VlUJpfrglx1MXt60"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Fablab Arduino training 2.png" alt="Projects" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Fablab Arduino training 2</h3>
-
-          <p class="project-category">Projects</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="Projects">
-        <a href="https://www.linkedin.com/posts/greenlab-fablab-tanger_impression-3d-physique-activity-7189365262599553024-y8jX?utm_source=share&utm_medium=member_desktop&rcm=ACoAADsQKJQB-dC1HhnCyM7VlUJpfrglx1MXt60"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Fablab 3d printing training.png" alt="Projects" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Fablab 3d printing training</h3>
-
-          <p class="project-category">Projects</p>
-
-
-        </a>
-      </li>
-
-      <li class="project-item active" data-filter-item data-category="Hackathons">
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7119298572642070528?utm_source=share&utm_medium=member_desktop&rcm=ACoAADsQKJQB-dC1HhnCyM7VlUJpfrglx1MXt60"  target="_blank">
-
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-
-            <img src="./images/projects/Image processing for automotive solutions.png" alt="Hackathons" loading="lazy">
-          </figure>
-
-          <h3 class="project-title">Image processing for automotive solutions</h3>
-
-          <p class="project-category">Hackathons</p>
-          <p class="project-category">Projects</p>
-
-
-        </a>
-      </li>
-
-
-    </ul>
-
-  </section>
-
-</article>
-
-
-      
-
-      <!--
-        - #achievement
-      -->
-      <article class="achievement" data-page="achievement">
-
-        <header>
-          <h2 class="h2 article-title">achievement</h2>
-        </header>
-
-        <section class="achievement-posts">
-
-          <ul class="achievement-posts-list">
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/2.jpg" alt="robotics competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">May, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">First Prize</h3>
-            
-                  <p class="achievement-text">
-                    African robotics competition ENSAM of Rabat.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/4.jpg" alt="World Robotics olympiad morocco national competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Oct 6, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">First Prize</h3>
-            
-                  <p class="achievement-text">
-                    World Robotics olympiad morocco national competition Future Engineers category winners as a participant.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/7.jpg" alt="VEX IQ Full valume robotics National competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Mar, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Third Prize</h3>
-            
-                  <p class="achievement-text">
-                    VEX IQ Full valume robotics National competition best robot design Award.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/3.jpg" alt="Robotics Sumo Competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">July, 2023</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Second Prize</h3>
-            
-                  <p class="achievement-text">
-                    Robotics Sumo Competition Ensa Agadir.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/18.jpg" alt="Robotics competition in surgery" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">May, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Third Prize</h3>
-            
-                  <p class="achievement-text">
-                    Robotics competition in surgery them of ENSET Mohamadia.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/10.jpg" alt="First Lego League Qualifying" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Jan, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Second Prize</h3>
-            
-                  <p class="achievement-text">
-                    First Lego League Qualifying Master Piece Season .
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/1.jpg" alt="Robotics Soccer competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">July, 2023</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Second Prize</h3>
-            
-                  <p class="achievement-text">
-                    Robotics Soccer competition Fst of Tangier.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/23.jpg" alt="Legend Science Week Exposition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Exposition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">May, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">First Prize</h3>
-            
-                  <p class="achievement-text">
-                    Legend Science Week Exposition.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/14.jpg" alt="Nasa Space App Challenge" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Hackathon</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Oct, 2023</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Third Prize</h3>
-            
-                  <p class="achievement-text">
-                    Nasa Space App Challenge.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/21.jpg" alt="SEBN Morocco Technology exposition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Exposition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Jun, 2023</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">First Prize</h3>
-            
-                  <p class="achievement-text">
-                    SEBN Morocco Technology exposition.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/17.jpg" alt="robotics competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">April, 2023</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Second Prize</h3>
-            
-                  <p class="achievement-text">
-                    University privet of fes tictactoe robot solver.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/5.jpg" alt="World Robotics olympiad morocco national" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Jun, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">First Prize</h3>
-            
-                  <p class="achievement-text">
-                    World Robotics olympiad morocco national competition robot mission elementary category winners as a coach.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/6.jpg" alt="World Robotics olympiad morocco national competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Jun, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">First Prize</h3>
-            
-                  <p class="achievement-text">
-                    World Robotics olympiad morocco national competition robot mission junior category winners as a coach.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/22.jpg" alt="Entrepreneurship Startups Competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Entrepreneurship</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Jan, 2023</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Third Prize</h3>
-            
-                  <p class="achievement-text">
-                    Fst of Tangier Entrepreneurship Startups Competition.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/15.jpg" alt="Daad saxeed fit4market Hackathon" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Hackathon</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Oct, 2023</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Second Prize</h3>
-            
-                  <p class="achievement-text">
-                    Daad saxeed fit4market Hackathon.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/8.jpg" alt="National VEX GO RC competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Mai, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Design Award</h3>
-            
-                  <p class="achievement-text">
-                    Design Award in the National VEX GO RC competition.
-                  </p>
-            
-                </div>
-
-
-
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/9.jpg" alt="Innovate award in the National VEX IQ RC competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Robotics</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">March, 2025</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Innovate Award</h3>
-            
-                  <p class="achievement-text">
-                    Innovate award in the National VEX IQ RC competition.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/19.jpg" alt=" Artificial Intelligence Universties NAtional Competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Oct, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Second Prize</h3>
-            
-                  <p class="achievement-text">
-                    Capgemini Artificial Intelligence Universties NAtional Competition.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/29.jpg" alt="Robotic Arm Circuit Diagram" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Visit</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Apr, 2025</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">NASA Johnson Space Center</h3>
-            
-                  <p class="achievement-text">
-                    Visit to NASA Johnson Space Center Houston Texas USA.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/24.jpg" alt="robot National Competition" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2020-10-06">Mai, 2023</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Fourth  Prize</h3>
-            
-                  <p class="achievement-text">
-                  Djkstra Algorithme Maze Solver robot National Competition.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/32.jpg" alt="National Robotics olympiads WRO Morocco" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">June, 2025</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">First Prize</h3>
-            
-                  <p class="achievement-text">
-                    National Robotics olympiads WRO Morocco future engineers as participant and robot mission Junior and senior category as a coach.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/13.jpg" alt="First Lego League National Championship" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Feb, 2025</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Championship Award</h3>
-            
-                  <p class="achievement-text">
-                  First Lego League National Championship Award 2024-2025 season Submerged Team Mindcraft SENIORS.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/11.jpg" alt="First Lego League Qualifying" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Jan, 2025</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Robot Design Award 3 </h3>
-            
-                  <p class="achievement-text">
-                    First Lego League Qualifying Robot Design Award 3 2024-2025 season Submerged Team Mindcraft SENIORS.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/15.jpg" alt="First Lego League Qualifying Robot Design" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Jan, 2025</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Robot Design Award 1 </h3>
-            
-                  <p class="achievement-text">
-                   First Lego League Qualifying Robot Design Award 3 2024-2025 season Submerged Team Mindcraft JUNIORS.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/31.jpg" alt="NASA Space App Challenge" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Hackathon</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Oct, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Second Prize</h3>
-            
-                  <p class="achievement-text">
-                   NASA Space App Challenge 2024.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/30.jpg" alt="First Lego League World festival" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Apr, 2025</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Peer Award</h3>
-            
-                  <p class="achievement-text">
-                    First Lego League World festival Peer Award 2024-2025 season Submerged Team Mindcraft SENIORS Houston Texas Morocco. 
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/25.jpg" alt="UM6P National Robotics Competition robot quadruped" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Apr, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title">Fifth Prize</h3>
-            
-                  <p class="achievement-text">
-                    UM6P National Robotics Competition robot quadruped.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            <li class="achievement-post-item">
-              <a href="#">
-            
-                <figure class="achievement-banner-box">
-                  <img src="./images/achievement/27.jpg" alt="UM6P National Robotics Competition robot quadruped" loading="lazy">
-                </figure>
-            
-                <div class="achievement-content">
-            
-                  <div class="achievement-meta">
-                    <p class="achievement-category">Competition</p>
-            
-                    <span class="dot"></span>
-            
-                    <time datetime="2024-10-06">Nov, 2024</time>
-                  </div>
-            
-                  <h3 class="h3 achievement-item-title"></h3>
-            
-                  <p class="achievement-text">
-                    UM6P National Robotics Competition robot quadruped.
-                  </p>
-            
-                </div>
-            
-              </a>
-            </li>
-
-            
-          
-            
-            
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.7743976494144!2d-5.8339545847470425!3d35.780573029761364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0c7f4d13f0ab83%3A0x9b37b4f57911a41a!2sTangier%2C%20Morocco!5e0!3m2!1sen!2sus!4v1728272778963!5m2!1sen!2sus&z=11"
-             width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>        
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Taha TAIDI LAAMIRI" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="taiditaha@gmail.com" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
-
-      </article>
-
-    </div>
-
-  </main>
-
-  <!--
-    - custom js link
-  -->
-  <script src="./js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>Designed &amp; built by <span>Rouchdiyath Adebiyi</span> · <span>2025</span></p>
+            <p style="margin-top:8px;opacity:0.5;">Industrial Engineering Student · ENSI</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== TYPEWRITER =====
+        const roles = [
+            'Industrial Engineering Student',
+            '3D Designer & Modeler',
+            'Operations Coordinator',
+            'Automation Enthusiast'
+        ];
+        let ri = 0, ci = 0, deleting = false;
+        const tw = document.getElementById('typewriter');
+        function type() {
+            const cur = roles[ri];
+            if (!deleting) {
+                tw.textContent = cur.slice(0, ++ci);
+                if (ci === cur.length) { deleting = true; setTimeout(type, 1800); return; }
+            } else {
+                tw.textContent = cur.slice(0, --ci);
+                if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+            }
+            setTimeout(type, deleting ? 45 : 85);
+        }
+        type();
+
+        // ===== NAVBAR SCROLL =====
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // ===== HAMBURGER =====
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+        });
+
+        // ===== SCROLL REVEAL =====
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    e.target.style.transitionDelay = (i % 3) * 0.1 + 's';
+                    e.target.classList.add('visible');
+                    // Animate skill bars
+                    e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                        bar.style.width = bar.dataset.width + '%';
+                    });
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // ===== FORM HANDLER =====
+        function handleSubmit(e) {
+            e.preventDefault();
+            const status = document.getElementById('form-status');
+            status.textContent = '// Message sent successfully. I\'ll get back to you soon!';
+            status.style.display = 'block';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => { status.style.display = 'none'; }, 5000);
+        }
+    </script>
 </body>
 
 </html>
